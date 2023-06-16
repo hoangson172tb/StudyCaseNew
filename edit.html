@@ -49,6 +49,7 @@
       color: red;
     }
   </style>
+
 </head>
 <body>
 
@@ -85,16 +86,20 @@
       </div>
       <div class="form-group">
         <label>Giới tính</label>
-        <input type="radio" id="male" value="Nam" name="gender">Nam
-        <input type="radio" id="famale" value="Nữ" name="gender">Nữ
+        <input type="radio" id="male" value="male" name="gender">Nam
+        <input type="radio" id="famale" value="famale" name="gender">Nữ
         <span id="genderError"></span>
       </div>
       <div class="form-group">
-        <button class="btn" type="button" onclick="addStudent()">Lưu lại</button>
+        <button class="btn" type="button" onclick="editStudent()">Update</button>
+      </div>
+      <div class="form-group">
+        <button class="btn" type="button">Cancel</button>
       </div>
     </form>
   </div>
 </div>
 <script src="js/Qlsv.js"></script>
+<script src="js/edit.js"></script>
 </body>
 </html>
