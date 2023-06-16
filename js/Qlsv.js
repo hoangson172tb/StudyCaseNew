@@ -1,6 +1,7 @@
-let studentsList =[];
-function addStudent(){
-    window.location.href="add.html"
+let studentsList = [];
+showStudentList();
+
+function addStudent() {
     let name = document.getElementById("fullname").value;
     let email = document.getElementById("email").value;
     let phone = document.getElementById("phone").value;
@@ -8,7 +9,7 @@ function addStudent(){
     let msv = document.getElementById("msv").value;
     let gender = "";
     if (name.length <= 2) {
-        name =""
+        name = ""
         document.getElementById("nameError").innerHTML = "Vui lòng nhập tên!"
     } else {
         document.getElementById("nameError").innerHTML = ``
@@ -16,7 +17,7 @@ function addStudent(){
 
 
     if (email.length < 1) {
-        email =""
+        email = ""
         document.getElementById("emailError").innerHTML = "Vui lòng nhập email!"
     } else {
         document.getElementById("emailError").innerHTML = ``
@@ -24,7 +25,7 @@ function addStudent(){
 
 
     if (phone.length <= 0) {
-        phone=""
+        phone = ""
         document.getElementById("phoneError").innerHTML = "Vui lòng nhập số điện thoại! "
     } else if (phone.length > 10) {
         document.getElementById("phoneError").innerHTML = "Số điện thoại không đúng! "
@@ -33,14 +34,14 @@ function addStudent(){
     }
 
     if (address.length <= 0) {
-        address=""
+        address = ""
         document.getElementById("addressError").innerHTML = "Vui lòng nhập địa chỉ! "
     } else {
         document.getElementById("addressError").innerHTML = ``
     }
 
     if (msv.length <= 0) {
-        msv=""
+        msv = ""
         document.getElementById("msvError").innerHTML = "Vui lòng nhập mã sinh viên!"
     } else if (msv.length > 10) {
         document.getElementById("msvError").innerHTML = "Sai mã sinh viên!"
@@ -55,7 +56,7 @@ function addStudent(){
         gender = document.getElementById("famale").value
     }
     if (gender.length <= 0) {
-        gender=""
+        gender = ""
         document.getElementById("genderError").innerHTML = "Vui lòng chọn giới tính!"
     } else {
         document.getElementById("genderError").innerHTML = ``
@@ -68,24 +69,33 @@ function addStudent(){
         msv: msv,
         gender: gender,
     }
-    if(name && email && phone && address && msv && gender){
+    if (name && email && phone && address && msv && gender) {
         studentsList.push(students);
+        localStorage.setItem("students", JSON.stringify(studentsList))
         showStudentList()
     }
 }
+
 function deleteList(id) {
     // alert("Bạn có muốn xóa?")
     // prompt("Xoa?")
     // prompt()
-    studentsList.splice(id,1)
+    studentsList.splice(id, 1)
     showStudentList();
 }
+
 function showStudentList() {
-    document.getElementById("result").innerHTML = ""
-    for (let i = 0; i<studentsList.length; i++){
-        document.getElementById("result").innerHTML += `
+    if (JSON.parse(localStorage.getItem("students")) == null) {
+        studentsList = []
+    }
+    else {
+        studentsList = JSON.parse(localStorage.getItem("students"))
+    }
+    let str = "";
+    for (let i = 0; i < studentsList.length; i++) {
+        str += `
      <tr>
-            <td>${i+1}</td>
+            <td>${i + 1}</td>
             <td>${studentsList[i].name}</td>
             <td>${studentsList[i].email}</td>
             <td>${studentsList[i].phone}</td>
@@ -101,9 +111,11 @@ function showStudentList() {
         </tr>
     `
     }
+    document.getElementById("result").innerHTML = str
 }
+
 function editList(index) {
-    window.location.href="edit.html"
+    window.location.href = "edit.html"
     // let student = studentsList[index]
     // console.log(student)
     // // student.name = prompt("name");
