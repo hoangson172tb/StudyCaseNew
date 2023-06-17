@@ -3,52 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit</title>
-  <style>
-    .panel {
-      width: 100%;
-      margin: 0 auto;
-      border: solid #4267b2 1px;
-    }
-
-    .panel-heading {
-      background-color: #4267b2;
-      padding: 10px;
-      color: white;
-    }
-
-    .panel-body {
-      padding: 10px;
-    }
-
-    .panel-body label {
-      font-weight: bold;
-    }
-
-    .form-group {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .form-control {
-      display: block;
-      width: 95%;
-      font-size: 15px;
-      margin-top: 5px;
-    }
-
-    .form-group button {
-      margin-top: 10px;
-    }
-    .table{
-      width: 100%;
-    }
-    .table tr{
-      border-bottom: solid blue 1px;
-    }
-    span{
-      color: red;
-    }
-  </style>
+  <link rel="stylesheet" href="css/Qlsv.css">
 </head>
 <body>
 
@@ -60,33 +15,33 @@
     <form method="post">
       <div class="form-group">
         <label for="fullname">Họ và Tên</label>
-        <input type="text" id="fullname" class="form-control">
+        <input type="text" id="fullname" class="form-control" required>
         <span id="nameError"></span>
       </div>
       <div class="form-group">
         <label for="email">Địa Chỉ email</label>
-        <input type="text" id="email" class="form-control">
+        <input type="email" id="email" class="form-control" required>
         <span id="emailError"></span>
       </div>
       <div class="form-group">
         <label for="phone">Số điện thoại</label>
-        <input type="text" id="phone" class="form-control">
+        <input type="text" id="phone" class="form-control" required>
         <span id="phoneError"></span>
       </div>
       <div class="form-group">
         <label for="address">Địa Chỉ</label>
-        <input type="text" id="address" class="form-control">
+        <input type="text" id="address" class="form-control" required>
         <span id="addressError"></span>
       </div>
       <div class="form-group">
         <label for="msv">Mã Sinh Viên</label>
-        <input type="text" id="msv" class="form-control">
+        <input type="text" id="msv" class="form-control" required>
         <span id="msvError"></span>
       </div>
       <div class="form-group">
         <label>Giới tính</label>
-        <input type="radio" id="male" value="Nam" name="gender">Nam
-        <input type="radio" id="famale" value="Nữ" name="gender">Nữ
+        <input type="radio" id="Male" value="Male" name="gender">Male
+        <input type="radio" id="Female" value="Female" name="gender">Female
         <span id="genderError"></span>
       </div>
       <div class="form-group">
@@ -95,6 +50,6 @@
     </form>
   </div>
 </div>
-<script src="js/Qlsv.js"></script>
+<script src="js/add.js"></script>
 </body>
 </html>

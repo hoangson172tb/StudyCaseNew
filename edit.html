@@ -3,52 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit</title>
-  <style>
-    .panel {
-      width: 100%;
-      margin: 0 auto;
-      border: solid #4267b2 1px;
-    }
-
-    .panel-heading {
-      background-color: #4267b2;
-      padding: 10px;
-      color: white;
-    }
-
-    .panel-body {
-      padding: 10px;
-    }
-
-    .panel-body label {
-      font-weight: bold;
-    }
-
-    .form-group {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .form-control {
-      display: block;
-      width: 95%;
-      font-size: 15px;
-      margin-top: 5px;
-    }
-
-    .form-group button {
-      margin-top: 10px;
-    }
-    .table{
-      width: 100%;
-    }
-    .table tr{
-      border-bottom: solid blue 1px;
-    }
-    span{
-      color: red;
-    }
-  </style>
+  <link rel="stylesheet" href="css/Qlsv.css">
 </head>
 <body>
 
@@ -80,21 +35,25 @@
       </div>
       <div class="form-group">
         <label for="msv">Mã Sinh Viên</label>
-        <input type="text" id="msv" class="form-control">
+        <input type="text" id="msv" class="form-control" readonly>
         <span id="msvError"></span>
       </div>
       <div class="form-group">
         <label>Giới tính</label>
-        <input type="radio" id="male" value="Nam" name="gender">Nam
-        <input type="radio" id="famale" value="Nữ" name="gender">Nữ
+        <input type="radio" id="Male" value="Male" name="gender">Male
+        <input type="radio" id="Female" value="Female" name="gender">Female
         <span id="genderError"></span>
       </div>
       <div class="form-group">
-        <button class="btn" type="button" onclick="addStudent()">Lưu lại</button>
+        <button class="btn" type="button" onclick="editStudent()">Update</button>
+      </div>
+      <div class="form-group">
+        <button class="btn" type="button" onclick="cancelStudent()">Cancel</button>
       </div>
     </form>
   </div>
 </div>
 <script src="js/Qlsv.js"></script>
+<script src="js/edit.js"></script>
 </body>
 </html>
