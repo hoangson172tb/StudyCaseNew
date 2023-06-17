@@ -1,12 +1,13 @@
-function redirectEdit(index) {
-    getStudents()
-    localStorage.setItem("studentEdit", JSON.stringify(studentsList[index]))
-    window.location.href = "edit.html"
-}
-
+let studentsList = [];
 let studentEdit = JSON.parse(localStorage.getItem("studentEdit"))
 showStudentEdit()
-
+function getStudents() {
+    if (JSON.parse(localStorage.getItem("students")) == null) {
+        studentsList = []
+    } else {
+        studentsList = JSON.parse(localStorage.getItem("students"))
+    }
+}
 function showStudentEdit() {
     // console.log("student", studentEdit)
     document.getElementById("fullname").value = studentEdit.name

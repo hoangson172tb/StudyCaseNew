@@ -46,3 +46,9 @@ function showStudentList() {
     resultDOM.innerHTML = str;
     // if (str.length != 0) document.getElementById("result").innerHTML = str
 }
+
+function redirectEdit(index) {
+    getStudents()
+    localStorage.setItem("studentEdit", JSON.stringify(studentsList[index]))
+    window.location.href = "edit.html"
+}
